@@ -1,0 +1,30 @@
+<div class="container m-1 p-2">
+    <h1>Stories</h1>
+    <div class="row">
+        {{#each stories}}
+        <div class="col-sm-12 col-lg-4 d-flex flex-wrap">
+            <div class="card" style="min-width: 100%; max-width:500px">
+                <div class="card-image">
+                    {{{editIcon user ../user _id}}}
+                </div>
+                <div class="card-content center-align" style="overflow:hidden;">
+                    <div>
+                        <h5>{{title}}</h5>
+                        <p>{{stripTags (truncate body 100)}}</p>
+                    </div>
+                    <br>
+                    <div class="chip">
+                        <img src="{{user.image}}" alt="">
+                        <a href="/stories/user/{{user._id}}">{{user.displayName}}</a>
+                    </div>
+                </div>
+                <div class="card-action center-align">
+                    <a href="/stories/{{_id}}" class="btn grey">Read More</a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p>No stories to display</p>
+        {{/each}}
+    </div>
+</div>
